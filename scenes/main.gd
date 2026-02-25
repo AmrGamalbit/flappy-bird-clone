@@ -23,8 +23,11 @@ func new_game():
 	game_over = false
 	score = 0
 	scroll = 0
+	pipes.clear()
+	get_tree().call_group("pipes", "queue_free")
 	generate_pipe()
 	$Bird.reset()
+	$GameOver.hide()
 	$ScoreLabel.text = "Score: " + str(score)
 	
 func _input(event: InputEvent) -> void:
@@ -82,6 +85,7 @@ func stop_game():
 	game_running = false
 	game_over = true
 	$Bird.flying = false
+	$GameOver.show()
 
 func check_top():
 	if $Bird.position.y <= 0:
@@ -93,3 +97,7 @@ func check_top():
 func _on_ground_hit() -> void:
 	$Bird.falling = false
 	stop_game()
+
+
+func _on_game_over_restart() -> void:
+	new_game()
