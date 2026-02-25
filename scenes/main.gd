@@ -35,6 +35,8 @@ func _input(event: InputEvent) -> void:
 				else:
 					if $Bird.flying:
 						$Bird.flap()
+						check_top()
+
 
 func start_game():
 	game_running = true
@@ -74,3 +76,14 @@ func stop_game():
 	game_running = false
 	game_over = true
 	$Bird.flying = false
+
+func check_top():
+	if $Bird.position.y <= 0:
+		$Bird.falling = true
+		stop_game()
+
+
+
+func _on_ground_hit() -> void:
+	$Bird.falling = false
+	stop_game()
