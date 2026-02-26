@@ -12,6 +12,7 @@ script = ExtResource("1_mi8v4")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(864, 852)
 texture = ExtResource("1_pybca")
+region_rect = Rect2(537, 2.5, 965, 163)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(864.5, 852)

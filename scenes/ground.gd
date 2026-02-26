@@ -4,5 +4,5 @@ signal hit
 
 
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(body) -> void:
 	hit.emit()
